@@ -9,6 +9,8 @@ Id - BTBTC19161
 # apriori-python
 This is a simple implementation of Apriori Algorithm in Google Colab. It takes in a csv file with a list of transactions, and finds out the maximum frequent item sets. The values for `minimum_support` and `minimum_confidence` need to be specified in the notebook.
 
+Minimum Support 30%
+Minimum Confidence 60%
 
 ## Understanding the implementation
 
@@ -28,7 +30,7 @@ t, t, ...
 ```python
 df = pd.read_csv("myDataFile.csv")
 ```
-
+---
 ### How to generate candidates?
 
 Step 1: self-joining Lk
