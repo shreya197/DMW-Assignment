@@ -10,6 +10,7 @@ Id - BTBTC19161
 This is a simple implementation of Apriori Algorithm in Google Colab. It takes in a csv file with a list of transactions, and finds out the maximum frequent item sets. The values for `minimum_support` and `minimum_confidence` need to be specified in the notebook.
 
 Minimum Support 30%
+
 Minimum Confidence 60%
 
 ## Understanding the implementation
