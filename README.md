@@ -24,7 +24,7 @@ t, t, ...
 2 We input the file using dataframes from pandas library:
 
 ```python
-df = pd.read_csv("myDataFile.csv", low_memory=False)
+df = pd.read_csv("myDataFile.csv")
 ```
 
 3 Next, we extract the header from the file and assign an index to each item.
@@ -32,7 +32,7 @@ df = pd.read_csv("myDataFile.csv", low_memory=False)
     * Then, we index these headers. This is done by making a dictionary such that `item_dict[item_name] = index_value`.
     * These index values are serial integers for every item in `item_list`.
 
-```python
+```
 item_list = list(df.columns)
 item_dict = dict()
 
@@ -48,7 +48,7 @@ for i, item in enumerate(item_list):
     * Finally, we append this `transaction` to the list of all `transactions`.
     * Thus, `transactions` is a list, where each transaction is a set of item index values.
 
-```python
+```
 transactions = list()
 
 for i, row in df.iterrows():
@@ -70,7 +70,7 @@ for i, row in df.iterrows():
     * For each `transaction`, it is checked whether the given `item_set` is a subset of the `transaction` or not. If it is, `match_count` is incremented.
     * Finally support value calculated by dividing the `match_count` by total number of `transactions` is returned
 
-```python
+```
 def get_support(transactions, item_set):
     match_count = 0
     for transaction in transactions:
@@ -90,7 +90,7 @@ Otherwise, it iterates through each `itemset` in `last_level_items` starting fro
     * We have the check for the number of elements in `union_set` to ensure that the `current_level_candidates` contain only the sets of fixed length. This is a requirement for Apriori Algorithm
     * Finally, `current_level_candidates` is returned.
 
-```python
+```
 def self_join(frequent_item_sets_per_level, level):
     current_level_candidates = list()
     last_level_items = frequent_item_sets_per_level[level - 1]
@@ -117,7 +117,7 @@ def self_join(frequent_item_sets_per_level, level):
     * We then append this temp set to the `single_drop_subsets`
     * Finally, we return the list `single_drop_subsets`.
 
-```python
+```
 def get_single_drop_subsets(item_set):
     single_drop_subsets = list()
     for item in item_set:
@@ -134,7 +134,7 @@ def get_single_drop_subsets(item_set):
     * For each `single_drop_subset`, it checks if it was present in the `prev_level_sets`. If it wasn’t it means the given `item_set` is a superset of a non-frequent `item_set`. Thus, it returns `False`
     * If all the `single_drop_subsets` are frequent itemsets, and are present in the `prev_level_sets`, it returns `True`
 
-```python
+```
 def is_valid_set(item_set, prev_level_sets):
     single_drop_subsets = get_single_drop_subsets(item_set)
 
@@ -153,7 +153,7 @@ def is_valid_set(item_set, prev_level_sets):
     * If this `item_set` is valid, it is appended to the list of `post_pruning_set`.
     * Finally `post_pruning_set` is returned.
 
-```python
+```
 def pruning(frequent_item_sets_per_level, level, candidate_set):
     post_pruning_set = list()
     if len(candidate_set) == 0:
@@ -185,7 +185,7 @@ def pruning(frequent_item_sets_per_level, level, candidate_set):
     * Note that this append operation also happens in pair format as described above.
     * Finally, we return the dictionary `frequent_item_sets_per_level`.
 
-```python
+```
 from collections import defaultdict
 
 def apriori(min_support):
@@ -215,7 +215,7 @@ def apriori(min_support):
 
 8. We specify the minimum support value for the given data here in variable `min_support` and invoke the `apriori()` function to generate the `frequent_item_sets_per_level`.
 
-```python
+```
 min_support = 0.05
 frequent_item_sets_per_level = apriori(min_support)
 ```
