@@ -216,6 +216,6 @@ def apriori(min_support):
 8. We specify the minimum support value for the given data here in variable `min_support` and invoke the `apriori()` function to generate the `frequent_item_sets_per_level`.
 
 ```
-min_support = 0.05
+min_support = 0.6
 frequent_item_sets_per_level = apriori(min_support)
 ```
