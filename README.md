@@ -29,7 +29,7 @@ t, t, ...
 df = pd.read_csv("myDataFile.csv")
 ```
 
-###How to generate candidates?
+### How to generate candidates?
 
 Step 1: self-joining Lk
 
@@ -51,8 +51,10 @@ acde is removed because ade is not in L3
 
 C4 = {abcd}
 
+---
+### The Apriori Algorithm (Pseudo-Code)
+
 ```
-###The Apriori Algorithm (Pseudo-Code)
 
 Ck: Candidate itemset of size k
 
